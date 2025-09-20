@@ -26,23 +26,32 @@ export const BaseNode = ({ title, fields = [], handles = [], children }) => {
   };
 
   return (
-    <div style={{ width: 200, minHeight: 80, border: '1px solid black', padding: 8 }}>
+    <div className="w-64 min-h-32 bg-black rounded-xl shadow-lg border border-gray-200 p-4 flex flex-col gap-2">
       {handles.filter(h => h.type === 'target').map((h, i) => (
         <Handle key={i} {...h} />
       ))}
-      <div><span>{title}</span></div>
-      <div>
+      <div className="text-lg font-semibold text-gray-100 mb-2 text-center">{title}</div>
+      <div className="flex flex-col gap-2">
         {fields.map((field, i) => (
-          <label key={i} style={{ display: 'block', marginBottom: 4 }}>
-            {field.label}:
+          <label key={i} className="flex flex-col text-sm text-gray-100">
+            <span className="mb-1 font-medium">{field.label}:</span>
             {field.type === 'select' ? (
-              <select value={fieldValues[field.label]} onChange={e => handleFieldChange(field.label, e)}>
+              <select
+                value={fieldValues[field.label]}
+                onChange={e => handleFieldChange(field.label, e)}
+                className="px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
+              >
                 {field.options.map(opt => (
                   <option key={opt} value={opt}>{opt}</option>
                 ))}
               </select>
             ) : (
-              <input type={field.type} value={fieldValues[field.label]} onChange={e => handleFieldChange(field.label, e)} />
+              <input
+                type={field.type}
+                value={fieldValues[field.label]}
+                onChange={e => handleFieldChange(field.label, e)}
+                className="px-2 py-1 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
+              />
             )}
           </label>
         ))}
