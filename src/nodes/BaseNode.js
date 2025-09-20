@@ -33,8 +33,8 @@ export const BaseNode = ({ title, fields = [], handles = [], children }) => {
       <div className="text-lg font-semibold text-gray-100 mb-2 text-center">{title}</div>
       <div className="flex flex-col gap-2">
         {fields.map((field, i) => (
-          <label key={i} className="flex flex-col text-sm text-gray-100">
-            <span className="mb-1 font-medium">{field.label}:</span>
+          <label key={i} className="flex flex-col text-sm text-gray-700">
+            <span className="mb-1 font-medium text-gray-100">{field.label}:</span>
             {field.type === 'select' ? (
               <select
                 value={fieldValues[field.label]}

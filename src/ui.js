@@ -10,6 +10,11 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { BooleanNode } from './nodes/booleanNode';
+import { ColorNode } from './nodes/colorNode';
+import { MathNode } from './nodes/mathNode';
+import { TimestampNode } from './nodes/timestampNode';
+import { FileNode } from './nodes/fileNode';
 
 import 'reactflow/dist/style.css';
 
@@ -20,6 +25,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  boolean: BooleanNode,
+  color: ColorNode,
+  math: MathNode,
+  time: TimestampNode,
+  file: FileNode
 };
 
 const selector = (state) => ({
